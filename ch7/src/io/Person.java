@@ -2,9 +2,8 @@ package io;
 
 import java.io.Serializable;
 
-
-// Serializable : 직렬화(객체 파일에 쓰기)
 public class Person implements Serializable{
+
 	private String name;
 	private String job;
 	public Person(String name, String job) {
@@ -16,4 +15,7 @@ public class Person implements Serializable{
 	public String toString() {
 		return "Person [name=" + name + ", job=" + job + "]";
 	}
+	
+	
+	
 }

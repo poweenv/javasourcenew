@@ -1,5 +1,6 @@
 package collection;
 
+import java.net.MulticastSocket;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -11,35 +12,19 @@ public class SetEx1 {
 		Set<String> set = new HashSet<>();
 		
 		for (int i = 0; i < 10; i++) {
-			set.add(String.valueOf(i)); 
+			set.add(String.valueOf(i));
 		}
-		
-		//중복 허용하지 않음
+		//중복 허용 x
 		set.add("9");
 		
 		System.out.println(set);
 		
-		// for / while
-		Iterator<String> it = set.iterator();
+		//for / while
+		Iterator<String> it =set.iterator();
 		while (it.hasNext()) {
-			System.out.println(it.next());			
+			System.out.println(it.next());
 		}
-
+		
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

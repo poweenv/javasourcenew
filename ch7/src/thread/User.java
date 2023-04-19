@@ -1,16 +1,17 @@
 package thread;
 
 public class User extends Thread{
-	private Calculator cal;
+	private Calcurator cal;
 	
-	public User(Calculator cal) {
-		super();
-		this.cal = cal;
-		setName("User1");
-	}
-
 	@Override
 	public void run() {
 		cal.setMemory(100);
+	
+	}
+
+	public User(Calcurator cal) {
+		super();
+		this.cal = cal;
+		setName("User1");
 	}
 }

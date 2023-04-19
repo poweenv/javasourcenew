@@ -8,6 +8,16 @@
 		<item value="git.eclipse.org"/>
 		<item value="github.com"/>
 	</list>
+	<list key="CommitDialog.authorValues">
+		<item value="gwangyeol &lt;kgkg12kg@naver.com&gt;"/>
+	</list>
+	<list key="CommitDialog.committerValues">
+		<item value="gwangyeol &lt;kgkg12kg@naver.com&gt;"/>
+	</list>
+	<section name="org.eclipse.egit.ui.internal.pull.PullResultDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="786"/>
+		<item key="DIALOG_Y_ORIGIN" value="382"/>
+	</section>
 	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
 		<item key="MAIN_SASH_FORM_ORIENTATION_VERTICAL" value="false"/>
 		<item key="HORIZONTAL_SASH_FORM_WEIGHT" value="500,500"/>
@@ -27,14 +37,6 @@
 			<item value="400"/>
 		</list>
 	</section>
-	<section name="org.eclipse.egit.ui.internal.pull.PullResultDialog.dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="116"/>
-		<item key="DIALOG_Y_ORIGIN" value="235"/>
-		<item key="DIALOG_WIDTH" value="831"/>
-		<item key="DIALOG_HEIGHT" value="440"/>
-		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|10.5|0|WINDOWS|1|-14|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
-	</section>
-	<section name="GitCommitSearchPage">
-		<item key="HISTORY_SIZE" value="0"/>
+	<section name="FetchGerritChangePage">
 	</section>
 </section>

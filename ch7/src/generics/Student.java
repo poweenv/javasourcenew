@@ -10,9 +10,7 @@ public class Student {
 		this.ban = ban;
 		this.no = no;
 	}
-	
 	public String getName() {
 		return name;
 	}
-	
 }

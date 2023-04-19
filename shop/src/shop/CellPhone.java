@@ -1,4 +1,4 @@
- package shop;
+package shop;
 
 public class CellPhone extends Product{
 	
@@ -13,6 +13,6 @@ public class CellPhone extends Product{
 	
 	//통신사정보 출력
 	public void printExtra() {
-		System.out.println("통신사 정보 : "+carrier);
+		System.out.println("통신사 정보 "+carrier);
 	}
 }

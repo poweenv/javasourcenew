@@ -10,8 +10,9 @@ public class Card {
 
 	public Card(String kind, int number) {
 		super();
-		this.kind = kind;
+		this.kind=kind;
 		this.number = number;
+		
 	}
 
 	@Override
@@ -20,26 +21,8 @@ public class Card {
 	}
 	
 //	@Override
-//	public String toString() {		
-//		return "kind : "+kind+", number : "+number;
+//	public String toString() {
+//	
+//		return "kind : "+kind+"number:"number;
 //	}
-	
-	
-	
-	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

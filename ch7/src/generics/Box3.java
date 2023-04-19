@@ -1,12 +1,11 @@
 package generics;
-
-import java.util.ArrayList;
-
-/* Box2<T> : 지네릭 클래스, T Box2라고 읽는다.
- * T : 타입변수 또는 타입 매개 변수
- * Box2 : 원시 타입(raw type)
+/*
+ *  Box2<T> : 지네릭 클래스, T box2라고 읽는다.
+ *  T : 타입변수 또는 타입매개 변수
+ *  box2 : 원시타입 (raw type)
  */
 
+import java.util.ArrayList;
 
 public class Box3<T> {
 	ArrayList<T> list = new ArrayList<>();
@@ -23,12 +22,5 @@ public class Box3<T> {
 	public String toString() {
 		return list.toString();
 	}
+	
 }
-
-
-
-
-
-
-
-

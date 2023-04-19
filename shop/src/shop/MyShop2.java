@@ -2,6 +2,8 @@ package shop;
 
 import java.util.Scanner;
 
+
+
 public class MyShop2 implements IShop{
 	
 	//쇼핑몰 이름
@@ -12,8 +14,7 @@ public class MyShop2 implements IShop{
 	Product products[] = new Product[4];
 	//구매한 제품을 저장 배열(cart)
 	Product carts[] = new Product[10];
-	
-	//선택된 user 저장 
+	//선택된 user 저장
 	private int selUser;
 	
 	Scanner sc = new Scanner(System.in);
@@ -26,7 +27,7 @@ public class MyShop2 implements IShop{
 
 	@Override
 	public void genUser() {		
-		//User 2명 생성 후 배열에 저장		
+		//User 2명 생성 후 배열에 저장
 		users[0] = new User("홍길동", PayType.CARD);
 		users[1] = new User("성춘향", PayType.CASH);
 	}
@@ -61,7 +62,7 @@ public class MyShop2 implements IShop{
 			System.exit(0);  //프로그램 종료
 			break;
 		case "0": case "1":
-			selUser = Integer.parseInt(sel);
+			selUser=Integer.parseInt(sel);
 			productList();
 			break;
 		default:
@@ -72,97 +73,91 @@ public class MyShop2 implements IShop{
 	}
 	
 	public void productList() {
-		System.out.println();
-		System.out.println(title + " : 상품 목록 - 상품 선택");
-		System.out.println("========================================");
-		
+		System.out.println(title+" : 상품 목록 - 상품선택 ");
+		System.out.println("=============================");
 		//products 배열 출력
 		for (int i = 0; i < products.length; i++) {
 			System.out.printf("[%d]",i);
 			products[i].printDetail();
 			products[i].printExtra();
 		}
-		System.out.println("[h] 메인 화면");
-		System.out.println("[c] 체크 아웃");
-		System.out.print("선택 : ");
-		
-		
+		System.out.println("[h] 메인화면");
+		System.out.println("[c] check out");
+		System.out.println("chose :  ");
 		String sel = sc.nextLine();
-		// 상품선택 시 0~3 => cart 제품 추가, productList() 호출
-		// h => start 메소드 호출, c => checkOut() 호출
-		switch (sel) {
-		case "0":case "1":case "2":case "3":
-			for (int i = 0; i < carts.length; i++) {
-				if(carts[i] == null) {
-					// Integer.parseInt("0") ==> 0
-					carts[i] = products[Integer.parseInt(sel)];
-					break;
-				}
-			}
-			productList();
-			break;
-		case "h": case "H":
-			start();
-			break;
-		case "c": case "C":
-			checkOut();
-			break;
-		default:
-			System.out.println("입력값을 확인해 주세요");
-			productList();
-			break;
-		}		
-	}
-	
-	public void checkOut() {
-		System.out.println(title + " : 체크아웃");
-		System.out.println("========================================");
-		
-		//carts 출력
-		int total = 0; //제품 가격 합계
+		// 상품선택 시0~3
+		// h=> start 메소드 호출, c=> checkOut() 호출
+	switch (sel) {
+	case "0": case"1": case "2": case "3":
 		for (int i = 0; i < carts.length; i++) {
-			if(carts[i] != null) {
-				System.out.printf("[%d] %s(%d)\n",i,carts[i].getName(),carts[i].getPrice());
-				total += carts[i].getPrice();
+			if(carts[i]==null) {
+				// Integer.parseInt("0") ==>0
+				carts[i] = products[Integer.parseInt(sel)];
+				break;
 			}
 		}
-		
-		System.out.println("========================================");
+		productList();
+		break;
+	case "h": case"H":
+		start();
+
+	case "c" : case"C":
+		checkOut();
+	default:
+		System.out.println("입력값을 확인해 주세요");
+		productList();
+		break;
+	}	
+	}
+	
+	
+	public void checkOut() {
+		//myShop : 체크아웃
+		System.out.println(title+" check out");
+		System.out.println("==========================");
+		int sumPrice = 0;
+		for (int i = 0; i < carts.length; i++) {
+			if(carts[i]!=null) {
+				System.out.printf("[%d] %s(%d)\n",i,carts[i].getName(),carts[i].getPrice());
+				sumPrice+=carts[i].getPrice();
+			}
+//			System.out.println(sumPrice);
+//			System.out.println("결제방법을 선택해 주세요");
+			
+			
+		}
+		System.out.println("========================");
 		System.out.println("결제 방법 : "+users[selUser].getPayType());
-		System.out.println("결제 금액 : "+total);
+		System.out.println("결제 금액 : "+sumPrice);
 		System.out.println("[p] 이전, [q] 결제완료");
-		System.out.print("선택 : ");
-		String sel = sc.nextLine();
-		
-		// p 일 때 productList() 호출
-		// q 일 때 결제가 완료되었습니다. 프로그램 종료
-		// 잘못입력 시 checkOut() 호출
-		switch (sel) {
-		case "p": case "P":
+		System.out.println("choose : ");
+		String sel=sc.nextLine();
+		/*
+		 *  장바구니에 담겨있는 상품 목록 출력
+		 *  가격 합계 구하기
+		 *  
+		 *  결제 방법 :CARD
+		 *  결제 금액 : 5000000
+		 *  [p] : 이전 , [q]: 결제완료
+		 */
+		// p 일때는 productList 호출
+		// q 일때는 결제가 완료되었습니다. 프로그램 종료
+		// 잘못입력시 checkOut() 호출
+		String select=sc.nextLine();
+		switch (select) {
+		case "p":
 			productList();
-			break;
-		case "q": case "Q":
+		case "q":
 			System.out.println("결제가 완료되었습니다.");
 			System.exit(0);
 			break;
+
 		default:
 			checkOut();
 			break;
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -11,6 +11,6 @@ public class SmartTv extends Product{
 	
 	//해상도정보 출력
 	public void printExtra() {
-		System.out.println("해상도 정보 : "+resolution);
+		System.out.println("해상도 정보 "+resolution);
 	}
 }
