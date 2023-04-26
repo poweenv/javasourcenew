@@ -2,7 +2,6 @@ package action;
 
 import javax.servlet.http.HttpServletRequest;
 
-import domain.BookDTO;
 import service.BookUpdateService;
 
 public class BookUpdateAction implements BookAction {

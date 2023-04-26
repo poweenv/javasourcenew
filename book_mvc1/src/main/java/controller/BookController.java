@@ -17,7 +17,8 @@ import action.BookActionForward;
 public class BookController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		
 		
 		//한글 처리
@@ -35,7 +36,7 @@ public class BookController extends HttpServlet {
 		BookActionForward af = null;
 		//생성된 액션에게 일 시키기(메소드 호출)
 		try {
-			af=action.execute(request);
+			af = action.execute(request);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -44,7 +45,7 @@ public class BookController extends HttpServlet {
 		if(af.isRedirect()) {
 			response.sendRedirect(af.getPath());
 		}else {
-			RequestDispatcher rd =request.getRequestDispatcher(af.getPath());
+			RequestDispatcher rd = request.getRequestDispatcher(af.getPath());
 			rd.forward(request, response);
 		}
 		

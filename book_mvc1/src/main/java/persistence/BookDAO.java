@@ -8,6 +8,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
 import domain.BookDTO;
 
 public class BookDAO {
@@ -17,27 +21,17 @@ public class BookDAO {
 	private Connection con;
 	private ResultSet rs;
 	// DB 서버 연결
-	static {
-		try {
-			Class.forName("oracle.jdbc.OracleDriver");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-
-	}
-
 	public Connection getConnection() {
-		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String user = "javadb";
-		String password = "1234";
-
 		try {
-			Connection con = DriverManager.getConnection(url, user, password);
-
+			
+			Context ctx = new InitialContext();
+			DataSource ds = (DataSource) ctx.lookup("java:comp/env/jdbc/myoracle");
+			Connection con = ds.getConnection();
+			
 			// DML 실행 시 트랜잭션 관리를 직접하겠음
 			con.setAutoCommit(false);
 			return con;
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
@@ -152,9 +146,9 @@ public class BookDAO {
 	public boolean insert(BookDTO insertDto) {
 		boolean flag = false;
 
-		con = getConnection();
-		String sql = "insert into booktbl(code, title, writer , price, description) values(?,?,?,?,?)";
 		try {
+		con = getConnection();
+		String sql = "insert into booktbl(code,title,writer,price,description) values(?,?,?,?,?)";
 
 			pstmt = con.prepareStatement(sql);
 
@@ -182,12 +176,12 @@ public class BookDAO {
 
 	// 도서 정보 수정(가격)
 	// sql="update booktbl set price=? where code=?"
-	public boolean update(int price, int code) {
+	public boolean update(int code, int price) {
 		boolean flag = false;
 
+		try {
 		con = getConnection();
 		String sql = "update booktbl set price=? where code=?";
-		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, price);
 			pstmt.setInt(2, code);
@@ -213,10 +207,11 @@ public class BookDAO {
 	
 	public boolean delete(int code) {
 		boolean flag = false;
+
+		try {
 		con=getConnection();
 		String sql="delete from booktbl where code=?";
 		
-		try {
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, code);
 			
