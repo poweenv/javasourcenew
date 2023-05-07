@@ -4,7 +4,7 @@ import domain.MemberDTO;
 import persistence.MemberDAO;
 
 public class MemberLoginService {
-	public MemberDTO login(String userid, String password) {
+	public MemberDTO login(String userid,String password) {
 		MemberDAO dao = new MemberDAO();
 		return dao.isLogin(userid, password);
 	}

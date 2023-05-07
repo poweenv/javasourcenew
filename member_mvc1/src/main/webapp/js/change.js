@@ -6,31 +6,32 @@
 
 const form = document.querySelector("form");
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit",(e)=>{
 	e.preventDefault();
-
-	const curPwd = document.querySelector("#floatingPassword1");
-	const newPwd = document.querySelector("#floatingPassword2");
-	const confirmPwd = document.querySelector("#floatingPassword3");
-
-	if (curPwd.value === "") {
-		alert("비밀번호를 입력해 주세요");
+	
+	const curPwd = document.querySelector("#floatingPassword1")
+	const newPwd = document.querySelector("#floatingPassword2")
+	const confirmPwd = document.querySelector("#floatingPassword3")
+	
+	if(curPwd.value === ""){
+		alert("");
 		curPwd.select();
 		return;
-	} else if (newPwd.value === "") {
-		alert("변경할 비밀번호를 입력해주세요");
+	}else if(newPwd.value === ""){
+		alert("");
 		newPwd.select();
 		return;
-	} else if (confirmPwd.value === "") {
-		alert("변경할 비밀번호를 한번더 입력해 주세요")
+	}else if(confirmPwd.value === ""){
+		alert("");
 		confirmPwd.select();
 		return;
 	}
-
-	if (newPwd.value !== confirmPwd.value) {
-		alert("변경할 비밀번호가 일치한지 확인해 주세요");
+	
+	if(newPwd.value !== confirmPwd.value){
+		alert("새 비밀번호와 새비밀번호 확인이 일치하지 않습니다");
 		confirmPwd.select();
 		return;
 	}
+	
 	form.submit();
 })

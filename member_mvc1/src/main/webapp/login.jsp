@@ -12,8 +12,7 @@
 	    <div class="form-floating">
 	      <input type="password" class="form-control" id="floatingPassword" placeholder="password" name="password">
 	      <label for="floatingPassword">Password</label>
-	    </div>
-	
+	    </div>	
 	    <div class="checkbox mb-3">
 	      <label>
 	        <input type="checkbox" value="remember-me"> Remember me
@@ -24,5 +23,3 @@
 	  </form>
 	</main>
 <%@ include file="/include/footer.jsp" %>
-
-

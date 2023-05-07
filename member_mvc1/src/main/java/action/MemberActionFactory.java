@@ -24,6 +24,8 @@ public class MemberActionFactory {
 			action = new MemberChangeAction();
 		}else if(cmd.equals("/leave.do")) {
 			action = new MemberLeaveAction();
+		}else if(cmd.equals("/dupId.do")) {
+			action = new MemberDupAction();
 		}
 		
 		return action;

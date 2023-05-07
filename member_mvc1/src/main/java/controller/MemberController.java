@@ -13,20 +13,20 @@ import action.Action;
 import action.ActionForward;
 import action.MemberActionFactory;
 
+/**
+ * Servlet implementation class MemberController
+ */
 @WebServlet("*.do")
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public MemberController() {
-        super();
-    }
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			
 		request.setCharacterEncoding("utf-8");
 		
 		String requestURI = request.getRequestURI();
 		String contextPath = request.getContextPath();
 		String cmd = requestURI.substring(contextPath.length());
+		
 		
 		MemberActionFactory maf = MemberActionFactory.getInstance();
 		Action action = maf.action(cmd);
@@ -34,11 +34,10 @@ public class MemberController extends HttpServlet {
 		ActionForward af = null;
 		
 		try {
-			af =action.execute(request);
-		} catch (Exception e) {
+			af = action.execute(request);
+		} catch (Exception e) {			
 			e.printStackTrace();
 		}
-		
 		
 		if(af.isRedirect()) {
 			response.sendRedirect(af.getPath());
@@ -49,9 +48,11 @@ public class MemberController extends HttpServlet {
 		
 	}
 
-
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 	}
 

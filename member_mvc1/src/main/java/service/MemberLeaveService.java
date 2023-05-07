@@ -1,12 +1,9 @@
 package service;
 
-import domain.MemberDTO;
+import persistence.MemberDAO;
 
 public class MemberLeaveService {
-
-	public boolean leave(String userid, String password) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean leave(String userid,String password) {
+		return new MemberDAO().remove(userid, password);
 	}
-
 }

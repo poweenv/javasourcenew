@@ -6,40 +6,39 @@ import javax.servlet.http.HttpSession;
 import domain.ChangeDTO;
 import domain.MemberDTO;
 import service.MemberChangeService;
+import service.MemberLoginService;
 
 public class MemberChangeAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request) throws Exception {
-		
-		// post
+		// post 
 		ChangeDTO dto = new ChangeDTO();
 		dto.setUserid(request.getParameter("userid"));
 		dto.setCurrentPassword(request.getParameter("current-password"));
 		dto.setNewPassword(request.getParameter("new-password"));
 		dto.setConfirmPassword(request.getParameter("confirm-password"));
 		
-		MemberChangeService loginService=new MemberChangeService();
-		MemberDTO info=loginService.login(dto.getUserid(),dto.getCurrentPassword());
-		// userid와 현재 비밀번호를 가지고 일치하는 회원이 있는지 확인
-		String path="";
+		// userid와 현재비밀번호를 가지고 일치하는 회원이 있는지 확인(해당 서비스 호출)
+		MemberLoginService loginService = new MemberLoginService();
+		MemberDTO info = loginService.login(dto.getUserid(), dto.getCurrentPassword());
+		
+		String path = "";
+		
 		if(info!=null) {
+			// 일치한다면 비번 변경 서비스 호출 => 성공 시  세션 해제 후 로그인 페이지로 이동
 			MemberChangeService changeService = new MemberChangeService();
-			if(changeService.ChangePwd(dto)) {
-				
+			if(changeService.changePwd(dto)) {
 				HttpSession session = request.getSession();
 				session.invalidate();
-				path= "login.jsp";
+				path = "login.jsp";
 			}
 		}else {
-			path="changePwd.jsp";
-		}
-
-		// 일치한다면 비번 변경 서비스 호출
-		// 일치하지 않다면 비번 변경 페이지로 되돌아가기
+			// 일치하지 않다면 비번 변경 페이지로 되돌아가기
+			path = "changePwd.jsp";
+		}		
 		
-		
-		return new ActionForward(true,path);
+		return new ActionForward(true, path);
 	}
 
 }

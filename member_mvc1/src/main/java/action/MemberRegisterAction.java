@@ -9,28 +9,27 @@ public class MemberRegisterAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request) throws Exception {
-
+		// post
 		MemberDTO dto = new MemberDTO();
 		dto.setUserid(request.getParameter("userid"));
 		dto.setPassword(request.getParameter("password"));
 		dto.setName(request.getParameter("name"));
 		dto.setGender(request.getParameter("gender"));
-		dto.setEmail(request.getParameter("email"));
+		dto.setEmail(request.getParameter("email"));	
 		
 		// service
 		MemberRegisterService service = new MemberRegisterService();
 		boolean insertFlag = service.memberInsert(dto);
 		
 		//회원 가입 성공시 로그인 페이지
-		String path ="";
+		String path="";
 		if(insertFlag) {
-			path="login.jsp";
+			path = "login.jsp";
 		}else {
-			path="register.jsp";
+			path = "register.jsp";
 		}
 		
-		
-		return new ActionForward(true,path);
+		// ActionForward
+		return new ActionForward(true, path);
 	}
-
 }

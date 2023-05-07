@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-    <typeInfo handle="=home_music/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;action{MusicAction.java[MusicAction" modifiers="513" timestamp="1682518235677"/>
     <typeInfo handle="=book_mvc1/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;action{BookAction.java[BookAction" modifiers="513" timestamp="1682479552892"/>
     <typeInfo handle="=member_mvc1/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;action{Action.java[Action" modifiers="513" timestamp="1682574276690"/>
+    <typeInfo handle="=h_music/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;action{Action.java[Action" modifiers="513" timestamp="1683037043465"/>
+    <typeInfo handle="=board/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;board.action{Action.java[Action" modifiers="513" timestamp="1682998506786"/>
 </typeInfoHistroy>

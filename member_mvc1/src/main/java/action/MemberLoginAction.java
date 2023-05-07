@@ -10,28 +10,24 @@ public class MemberLoginAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request) throws Exception {
+		// post 가져오기
+		String userid = request.getParameter("userid");
+		String password = request.getParameter("password");
 		
-		//post 가져오기
-		String userid= request.getParameter("userid");
-		String password=request.getParameter("password");
-		
-		//service
+		// service
 		MemberLoginService service = new MemberLoginService();
-		MemberDTO loginDto = service.login(userid, password);
+		MemberDTO loginDto = service.login(userid, password); 		
 		
 		
-		String path="";
-		if(loginDto !=null) {
+		String path = "";
+		if(loginDto != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginDto", loginDto);
-			path= "index.jsp";
+			path = "index.jsp";
 		}else {
-			path="login.jsp";
+			path = "login.jsp";
 		}
-		
-		
-		//ActionForward
-
+		// ActionForward
 		return new ActionForward(true, path);
 	}
 
