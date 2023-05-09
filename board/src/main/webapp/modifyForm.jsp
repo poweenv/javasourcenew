@@ -10,7 +10,8 @@
 			<div class="col-sm-10">
 				<input type="text" class="form-control" id="inputName" name="name" readonly value="${dto.name}">
 			</div>
-		</div>		<div class="row mb-3">
+		</div>
+		<div class="row mb-3">
 			<label for="inputTitle" class="col-sm-2 col-form-label">제목</label>
 			<div class="col-sm-10">
 				<input type="text" class="form-control" id="inputTitle" name="title" value="${dto.title}">
@@ -60,7 +61,11 @@
 				</div>
 			</div>
 		</div>		
-		<input type="hidden" name="bno" value="${dto.bno}" />		
+		<input type="hidden" name="bno" value="${dto.bno}" />
+		<input type="hidden" name="criteria" value="${pageDTO.criteria}" />
+		<input type="hidden" name="keyword" value="${pageDTO.keyword}" />
+		<input type="hidden" name="page" value="${pageDTO.page}" />
+		<input type="hidden" name="amount" value="${pageDTO.amount}" />			
 		<button type="submit" class="btn btn-primary">수정</button>		
 		<button type="button" class="btn btn-danger">삭제</button>		
 		<button type="button" class="btn btn-success">목록보기</button>
@@ -69,8 +74,13 @@
 <form action="" id="modifyForm">
 	<input type="hidden" name="bno" value="${dto.bno}" />
 	<input type="hidden" name="password" value="" id="password"/>
+	<input type="hidden" name="criteria" value="${pageDTO.criteria}" />
+	<input type="hidden" name="keyword" value="${pageDTO.keyword}" />
+	<input type="hidden" name="page" value="${pageDTO.page}" />
+	<input type="hidden" name="amount" value="${pageDTO.amount}" />	
 </form>
 
 
 <script src='<c:url value="/js/modify.js"/>'></script>
 <%@ include file="include/footer.jsp"%>
+

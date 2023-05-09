@@ -90,7 +90,7 @@
 	</section>
 	<section name="DialogBounds_GenerateConstructorUsingFieldsSelectionDialog">
 		<item key="DIALOG_X_ORIGIN" value="268"/>
-		<item key="DIALOG_Y_ORIGIN" value="-17"/>
+		<item key="DIALOG_Y_ORIGIN" value="0"/>
 		<item key="DIALOG_WIDTH" value="611"/>
 		<item key="DIALOG_HEIGHT" value="823"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|10.5|0|WINDOWS|1|-14|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
